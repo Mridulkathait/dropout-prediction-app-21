@@ -500,12 +500,13 @@ def sidebar_navigation() -> str:
             "🔍 SHAP Explainability",
             "🧭 Counseling Plan",
         ],
-        index=0
+        index=0,
+        key="nav_radio"
     )
 
     st.sidebar.markdown("### ⚙️ Risk thresholds")
-    low_thr = st.sidebar.slider("Low threshold", 0.0, 0.5, 0.33, 0.01)
-    high_thr = st.sidebar.slider("High threshold", 0.5, 1.0, 0.66, 0.01)
+    low_thr = st.sidebar.slider("Low threshold", 0.0, 0.5, 0.33, 0.01, key="low_thr_slider")
+    high_thr = st.sidebar.slider("High threshold", 0.5, 1.0, 0.66, 0.01, key="high_thr_slider")
     if high_thr <= low_thr:
         st.sidebar.warning("High threshold should be greater than Low threshold.")
 
@@ -515,6 +516,7 @@ def sidebar_navigation() -> str:
     st.sidebar.markdown("---")
     st.sidebar.caption("Tip: Confirm target detection before training.")
     return page
+
 
 
 def home():
